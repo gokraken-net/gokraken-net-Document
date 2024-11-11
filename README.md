@@ -20,4 +20,4 @@
 
 1. System Interaction Overview
 
-![Image](./logo 001.PNG)
+![Image](./20241001_KrakenNet(v.2.4)_1.png)
