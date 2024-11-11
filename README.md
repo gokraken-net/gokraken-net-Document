@@ -2,7 +2,7 @@
 ## goKraken Net document List
 
 ##### ARCHITECTURE DIAGRAMS
-
+[Document](./KrakenNet Architecture Digrams (v. 0.1).pdf)
 1. High-Level System Architecture Diagram
 
 1. Detailed Architecture of MOTHER
