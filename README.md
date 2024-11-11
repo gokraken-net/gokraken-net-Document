@@ -1,4 +1,4 @@
-![Image](./logo 001.PNG)
+![Image](./logo_001.PNG)
 ### goKraken Net document List
 
 ##### ARCHITECTURE DIAGRAMS
