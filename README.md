@@ -1,9 +1,9 @@
 ![Image](./logo_001.PNG)
 ## goKraken Net document List
 
-[Document](./KrakenNet_Architecture_Digrams_(v.0.1).pdf)
 
 ##### ARCHITECTURE DIAGRAMS
+[Architecture Document](./KrakenNet_Architecture_Digrams_(v.0.1).pdf)
 
 1. High-Level System Architecture Diagram
 
@@ -15,6 +15,7 @@
 
 
 ##### USER JOURNEYS
+[User Document](./KrakenNet_User_Journeys_(v.0.1).pdf)
 
 1. End User Journey - Contributing Idle Computing Power
 
