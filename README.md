@@ -1,4 +1,3 @@
-![image] (./logo 001.PNG)
 
 ### goKraken Net document List
 
@@ -20,3 +19,5 @@
 1. Developer Journey - Integrating KrakenNet API/SDK
 
 1. System Interaction Overview
+
+![Image](./logo 001.PNG)
