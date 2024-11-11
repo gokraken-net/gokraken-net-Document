@@ -1,4 +1,6 @@
-![gokraken] (/logo 001.PNG)
+![gokraken][Image] 
+[Image]: logo 001.PNG
+
 ### goKraken Net document List
 
 ##### ARCHITECTURE DIAGRAMS
