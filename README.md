@@ -1,4 +1,4 @@
-![gokraken] (logo 001.PNG)
+![image] (logo 001.PNG)
 
 ### goKraken Net document List
 
