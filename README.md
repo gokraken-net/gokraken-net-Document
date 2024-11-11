@@ -1,21 +1,20 @@
-# Document
-goKraken Net document List
+### goKraken Net document List
 
-ARCHITECTURE DIAGRAMS
+##### ARCHITECTURE DIAGRAMS
 
-High-Level System Architecture Diagram
+1. High-Level System Architecture Diagram
 
-Detailed Architecture of MOTHER
+1. Detailed Architecture of MOTHER
 
-Data Flow Diagram
+1. Data Flow Diagram
 
-Deployment Diagram
+1. Deployment Diagram
 
 
-USER JOURNEYS
+##### USER JOURNEYS
 
-End User Journey - Contributing Idle Computing Power
+1. End User Journey - Contributing Idle Computing Power
 
-Developer Journey - Integrating KrakenNet API/SDK
+1. Developer Journey - Integrating KrakenNet API/SDK
 
-System Interaction Overview
+1. System Interaction Overview
