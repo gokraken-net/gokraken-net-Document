@@ -1,7 +1,7 @@
 ![Image](./logo_001.PNG)
-### goKraken Net document List
+## goKraken Net document List
 
-[##### ARCHITECTURE DIAGRAMS] (KrakenNet Architecture Digrams (v. 0.1).pdf)
+##### ARCHITECTURE DIAGRAMS
 
 1. High-Level System Architecture Diagram
 
