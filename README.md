@@ -1,3 +1,4 @@
+![] logo 001.PNG
 ### goKraken Net document List
 
 ##### ARCHITECTURE DIAGRAMS
