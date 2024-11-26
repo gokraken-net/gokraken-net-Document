@@ -46,6 +46,7 @@
           "id": "ID",
           "password": "Password"
         }'
+    
   - Response
       {
         "accessToken":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
