@@ -75,7 +75,26 @@
             "trainingTimePerJob": "10m"
         }
         
+###### Step-3 : GET Item Info (GET)
+   1. Description
+      - Check the item creation status using the item unique number (`jobId`).
 
+   1. Example (Video → NeRF2Mesh → 3DMesh)
+      - Request
+          curl -X 'GET' \
+          'https://api.gokraken,net/kreken/item/my-item/257a59cc-0a3e-4ce7-b7e3-17f3ce6a8041' \
+          -H 'accept: application/json' \
+          -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
+        ​
+     - Response
+        {
+          "jobId": "257a59cc-0a3e-4ce7-b7e3-17f3ce6a8041",
+          "itemName": "NeRFTest",
+          "model": "nerf2mesh",
+          "jobStatus": "success",
+          "createdAt": "2024-08-27T14:42:10.845859Z",
+          "requestedAt": "2024-08-27T14:38:11.811489Z"
+        }
     
 ![Image](./20241001_KrakenNet(v.2.4)_1.png)
 
