@@ -21,10 +21,10 @@
 
   1. System Interaction Overview
 
-#### RESTFul API Tutorial
 
+#### RESTFul API Tutorial
 ###### Objective
-  - Describes the usage procedure of the RESTFul API of the Atlas platform that generates media content corresponding to user input using generative AI technology and the detailed API functions.
+  - Describes the usage procedure of the RESTFul API of the Kraken platform that generates media content corresponding to user input using generative AI technology and the detailed API functions.
 
 ###### Target
   - Companies / users who want to receive AI-based media content corresponding to input data end-to-end
@@ -33,24 +33,49 @@
 ##### RESTFul API Tutorial
 ###### Step-1: Get Token (POST)
 1. Description
-  - The first step to use the Atlas RESTFul API is to issue an authentication key for the entered account.
+  - The first step to use the Kraken RESTFul API is to issue an authentication key for the entered account.
   - The issued authentication key must be passed along with the Authorization key in all API headers to enable normal API use.
   - The expiration time (Expiry) of the issued authentication key is 24 hours.
 1. Example (Authorization)
   - Request
-    curl -X 'POST' \
-        'https://api.atg-atlas.com/atlas/auth/sign-in' \
-        -H 'accept: application/json' \
-        -H 'Content-Type: application/json' \
-        -d '{
-        "id": "ID",
-        "password": "Password"
-    }'
-- Response
-    {
-      "accessToken":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
-    }
+        curl -X 'POST' \
+          'https://api.gokraken.net/kraken/auth/sign-in' \
+          -H 'accept: application/json' \
+          -H 'Content-Type: application/json' \
+          -d '{
+          "id": "ID",
+          "password": "Password"
+        }'
+  - Response
+      {
+        "accessToken":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
+      }
 
+###### Step-2: Create AI Model (POST)
+  1.  Description
+    - Send a request to create AI results based on input data (Video, Image) using the Creation API provided by the Kraken platform.
+    - If the creation request is registered normally, the item's unique number (`jobId`) is returned.
+    - You can check the item download and creation status using `jobId`.
+  1. Example (Video →NeRF2Mesh→ 3DMesh)
+    - Request
+      curl -X 'POST' \
+        'https://api.gokraken.net/kraken/model/nerf2mesh/create' \
+        -H 'accept: application/json' \
+        -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9' \
+        -H 'Content-Type: multipart/form-data' \
+        -F 'itemName=NeRFTest' \
+        -F 'epoch=50' \
+        -F 'payload=@new_dragon.mp4;type=video/mp4'
+      
+    - Response
+        {
+            "jobId": "257a59cc-0a3e-4ce7-b7e3-17f3ce6a8041",
+            "queueSize": "0",
+            "trainingTimePerJob": "10m"
+        }
+        
+
+    
 ![Image](./20241001_KrakenNet(v.2.4)_1.png)
 
 
