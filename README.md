@@ -22,7 +22,7 @@
   1. System Interaction Overview
 
 
-### RESTFul API Tutorial
+### RESTFul API Tutorial (Not Yet Public Only Example)
 #### Objective
   - Describes the usage procedure of the RESTFul API of the Kraken platform that generates media content corresponding to user input using generative AI technology and the detailed API functions.
 
