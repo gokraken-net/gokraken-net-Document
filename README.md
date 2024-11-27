@@ -128,10 +128,7 @@
     print(f"Initial Circulating Supply: {initial_circulating:,.0f} $INK")
     print(f"Initial Market Cap: ${initial_market_cap:,.2f}")
     print(f"Total Raise: ${total_raise:,.2f}")
-    Made with
-    Artifacts are user-generated and may contain unverified or potentially unsafe content.
-    Report
-    Remix Artifact
+   
  
 #### 4. Governance Mechanisms [Governance Mechanisms](https://github.com/gokraken-net/2.-Governance-Mechanisms)
 
