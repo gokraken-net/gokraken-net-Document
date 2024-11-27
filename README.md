@@ -2,7 +2,7 @@
 # goKraken net document List
 
 
-#### ARCHITECTURE DIAGRAMS [Architecture Document](./KrakenNet_Architecture_Digrams_(v.0.1).pdf)
+#### 1. ARCHITECTURE DIAGRAMS [Architecture Document](./KrakenNet_Architecture_Digrams_(v.0.1).pdf)
 
   1. High-Level System Architecture Diagram
 
@@ -13,13 +13,248 @@
   1. Deployment Diagram
 
 
-#### USER JOURNEYS [User Document](./KrakenNet_User_Journeys_(v.0.1).pdf)
+#### 2. USER JOURNEYS [User Document](./KrakenNet_User_Journeys_(v.0.1).pdf)
 
   1. End User Journey - Contributing Idle Computing Power
 
   1. Developer Journey - Integrating KrakenNet API/SDK
 
   1. System Interaction Overview
+
+
+#### 3. Detailed Financial Models [Detailed Financial Models](./1.-Detailed-Financia-Models.py)
+    import pandas as pd
+    import numpy as np
+    
+    def calculate_token_emissions(total_supply=1_000_000_000, months=48):
+        """Calculate monthly token emissions and financial metrics"""
+        
+        # Token allocation and prices
+        allocations = {
+            'seed': {'percentage': 0.05, 'price': 0.04, 'lockup': 6, 'vesting': 18},
+            'strategic': {'percentage': 0.10, 'price': 0.06, 'lockup': 3, 'vesting': 15},
+            'public': {'percentage': 0.14, 'price': 0.07, 'lockup': 0, 'vesting': 12},
+            'ido': {'percentage': 0.06, 'price': 0.08, 'lockup': 0, 'vesting': 3},
+            'network_rewards': {'percentage': 0.20, 'vesting': 48},
+            'developer_incentives': {'percentage': 0.10, 'vesting': 36},
+            'team_advisors': {'percentage': 0.20, 'lockup': 12, 'vesting': 36},
+            'operations': {'percentage': 0.10, 'vesting': 48},
+            'reserve': {'percentage': 0.05, 'lockup': 24}
+        }
+        
+        # Initialize monthly emission dataframe
+        df = pd.DataFrame(index=range(months))
+        
+        # Calculate emissions for each allocation
+        for category, params in allocations.items():
+            tokens = total_supply * params['percentage']
+            lockup = params.get('lockup', 0)
+            vesting = params.get('vesting', 0)
+            
+            if category == 'ido':
+                # Special case for IDO with 50% upfront
+                initial_release = tokens * 0.5
+                remaining = tokens * 0.5
+                monthly = remaining / vesting
+                emissions = [0] * lockup + [initial_release] + [monthly] * (vesting - 1)
+            else:
+                monthly = tokens / vesting if vesting > 0 else 0
+                emissions = [0] * lockup + [monthly] * (vesting if vesting > 0 else 1)
+            
+            df[f'{category}_emissions'] = emissions[:months] + [0] * (months - len(emissions))
+        
+        # Calculate cumulative metrics
+        df['monthly_emissions'] = df.sum(axis=1)
+        df['cumulative_supply'] = df['monthly_emissions'].cumsum()
+        
+        return df
+
+    def project_network_metrics(months=48, initial_users=6000, initial_models=270000):
+        """Project network growth and usage metrics"""
+        
+        # Growth assumptions
+        monthly_user_growth = 0.40  # 40% monthly growth
+        monthly_model_growth = 0.35  # 35% monthly model growth
+        compute_cost_savings = 0.90  # 90% cost savings vs traditional
+        
+        # Initialize projections dataframe
+        df = pd.DataFrame(index=range(months))
+        
+        # Calculate user and model growth
+        df['active_users'] = [initial_users * (1 + monthly_user_growth) ** i for i in range(months)]
+        df['models_processed'] = [initial_models * (1 + monthly_model_growth) ** i for i in range(months)]
+        
+        # Calculate compute metrics
+        avg_compute_cost_per_model = 5  # USD
+        df['traditional_compute_costs'] = df['models_processed'] * avg_compute_cost_per_model
+        df['kraken_compute_costs'] = df['traditional_compute_costs'] * (1 - compute_cost_savings)
+        df['cost_savings'] = df['traditional_compute_costs'] - df['kraken_compute_costs']
+        
+        # Calculate network revenue
+        take_rate = 0.20  # 20% platform fee
+        df['network_revenue'] = df['kraken_compute_costs'] * take_rate
+        
+        return df
+
+    def calculate_token_metrics(total_supply=1_000_000_000, initial_price=0.08):
+        """Calculate key token metrics"""
+        
+        emissions_df = calculate_token_emissions(total_supply)
+        network_df = project_network_metrics()
+        
+        # Combine metrics
+        df = pd.concat([emissions_df, network_df], axis=1)
+        
+        # Calculate token metrics
+        df['token_price'] = initial_price  # Simplified - would need market dynamics model
+        df['market_cap'] = df['cumulative_supply'] * df['token_price']
+        df['fully_diluted_valuation'] = total_supply * df['token_price']
+        
+        return df
+
+    # Generate projections
+    projections = calculate_token_metrics()
+    
+    # Print key metrics for first 12 months
+    print("\nMonthly Projections (First Year):")
+    print(projections.head(12)[['active_users', 'models_processed', 'network_revenue', 'market_cap']])
+    
+    # Calculate key statistics
+    initial_circulating = projections['cumulative_supply'][0]
+    initial_market_cap = initial_circulating * 0.08  # Initial token price
+    total_raise = (50_000_000 * 0.04) + (100_000_000 * 0.06) + (140_000_000 * 0.07) + (60_000_000 * 0.08)
+    
+    print("\nKey Token Metrics:")
+    print(f"Initial Circulating Supply: {initial_circulating:,.0f} $INK")
+    print(f"Initial Market Cap: ${initial_market_cap:,.2f}")
+    print(f"Total Raise: ${total_raise:,.2f}")
+    Made with
+    Artifacts are user-generated and may contain unverified or potentially unsafe content.
+    Report
+    Remix Artifact
+ 
+#### 4. Governance Mechanisms [Governance Mechanisms](./https://github.com/gokraken-net/2.-Governance-Mechanisms)
+
+##### 1. Governance Structure
+###### Voting Power
+    - $INK = 1 base vote
+    - Voting power multipliers:
+      - Staked tokens: 1.5x
+      - Network node operators: 2x
+      - Active developers: 2x
+      - Long-term holders (>6 months): 1.25x
+
+##### Governance Bodies
+###### 1. Token Holders
+    - All $INK holders
+    - Basic voting rights
+    - Proposal submission (requires 1M $INK)
+###### 2. Technical Committee
+    - 7 members
+    - Elected by token holders
+    - Focus: Technical proposals & upgrades
+    - Requirements:
+      - Proven technical expertise
+      - Min 500K $INK staked
+      - 2-year commitment
+###### 3. Node Operator Council
+    - 5 members
+    - Elected by active node operators
+    - Focus: Network operations & rewards
+    - Requirements:
+    - Active node operation
+    - Min 3 months history
+    - Performance score >95%
+###### 4. Development Fund Committee
+    - 5 members
+    - 3 elected by token holders
+    - 2 appointed by core team
+    - Focus: Ecosystem fund allocation
+
+##### 2. Proposal System
+###### Proposal Types
+    1. Network Parameters
+    - Reward rates
+    - Fee structures
+    - Node requirements
+    - Threshold: >50% approval
+    2. Technical Upgrades
+    - Smart contract updates
+    - Protocol changes
+    - Security implementations
+    - Threshold: >66% approval
+    3. Treasury Allocation
+    - Development grants
+    - Marketing initiatives
+    - Infrastructure investments
+    - Threshold: >60% approval
+    4. Emergency Actions
+    - Security patches
+    - Emergency pauses
+    - Threshold: >75% approval
+    
+###### Proposal Process
+    1. Discussion Phase (7 days)
+    - Forum discussion
+    - Community feedback
+    - Technical review
+    2. Formal Proposal (3 days)
+    - Detailed specification
+    - Implementation plan
+    - Economic impact analysis
+    3. Voting Period (5 days)
+    - On-chain voting
+    - Real-time results
+    - Vote locking
+    4. Implementation (if passed)
+    - Technical deployment
+    - Community notification
+    - Progress tracking
+##### 3. Economic Rights
+###### Fee Distribution
+    - 70% to Node Operators
+    - 20% to Treasury
+    - 10% to Token Burn
+###### Staking Benefits
+    - Enhanced voting power
+    - Fee share participation
+    - Priority access to features
+###### Developer Incentives
+    - Grant access
+    - Reduced platform fees
+    - Governance participation
+
+##### 4. Risk Management
+###### Security Measures
+    - Multi-sig requirements
+    - Time-locks on major changes
+    - Emergency pause mechanisms
+###### Checks and Balances
+    - Technical Committee veto power
+    - Community override mechanism
+    - Gradual parameter adjustment
+
+##### 5. Future Governance Evolution
+###### Phase 1: Foundation-Guided (Months 1-6)
+    - Core team maintains significant influence
+    - Focus on stability and growth
+    - Community input gathering
+###### Phase 2: Community Transition (Months 7-12)
+    - Gradual power transfer
+    - Committee formations
+    - Initial proposal testing
+###### Phase 3: Full Decentralization (Month 13+)
+    - Complete community governance
+    - Core team advisory role
+    - Self-sustaining ecosystem
+
+##### 6. Governance Analytics
+###### KPIs to Track
+    - Proposal participation rate
+    - Vote distribution
+    - Implementation success rate
+    - Community engagement metrics
+
 
 
 ### RESTFul API Tutorial (Not Yet Public Only Example)
@@ -37,20 +272,20 @@
   - The issued authentication key must be passed along with the Authorization key in all API headers to enable normal API use.
   - The expiration time (Expiry) of the issued authentication key is 24 hours.
 1. Example (Authorization)
-  - Request
-        curl -X 'POST' \
-          'https://api.gokraken.net/kraken/auth/sign-in' \
-          -H 'accept: application/json' \
-          -H 'Content-Type: application/json' \
-          -d '{
-          "id": "ID",
-          "password": "Password"
-        }'
-    
-  - Response
-      {
-        "accessToken":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
-      }
+    - Request
+          curl -X 'POST' \
+            'https://api.gokraken.net/kraken/auth/sign-in' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -d '{
+            "id": "ID",
+            "password": "Password"
+          }'
+      
+    - Response
+        {
+          "accessToken":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
+        }
 
 #### Step-2: Create AI Model (POST)
   1.  Description
@@ -58,43 +293,43 @@
     - If the creation request is registered normally, the item's unique number (`jobId`) is returned.
     - You can check the item download and creation status using `jobId`.
   1. Example (Video →NeRF2Mesh→ 3DMesh)
-    - Request
-      curl -X 'POST' \
-        'https://api.gokraken.net/kraken/model/nerf2mesh/create' \
-        -H 'accept: application/json' \
-        -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9' \
-        -H 'Content-Type: multipart/form-data' \
-        -F 'itemName=NeRFTest' \
-        -F 'epoch=50' \
-        -F 'payload=@new_dragon.mp4;type=video/mp4'
-      
-    - Response
-        {
-            "jobId": "257a59cc-0a3e-4ce7-b7e3-17f3ce6a8041",
-            "queueSize": "0",
-            "trainingTimePerJob": "10m"
-        }
+      - Request
+        curl -X 'POST' \
+          'https://api.gokraken.net/kraken/model/nerf2mesh/create' \
+          -H 'accept: application/json' \
+          -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9' \
+          -H 'Content-Type: multipart/form-data' \
+          -F 'itemName=NeRFTest' \
+          -F 'epoch=50' \
+          -F 'payload=@new_dragon.mp4;type=video/mp4'
         
+      - Response
+          {
+              "jobId": "257a59cc-0a3e-4ce7-b7e3-17f3ce6a8041",
+              "queueSize": "0",
+              "trainingTimePerJob": "10m"
+          }
+          
 #### Step-3 : GET Item Info (GET)
    1. Description
       - Check the item creation status using the item unique number (`jobId`).
 
    1. Example (Video → NeRF2Mesh → 3DMesh)
-      - Request
-        curl -X 'GET' \
-         'https://api.gokraken.net/kraken/item/my-item/257a59cc-0a3e-4ce7-b7e3-17f3ce6a8041' \
-         -H 'accept: application/json' \
-         -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
-        
-      - Response
-          {
-           "jobId": "257a59cc-0a3e-4ce7-b7e3-17f3ce6a8041",
-           "itemName": "NeRFTest",
-           "model": "nerf2mesh",
-           "jobStatus": "success",
-           "createdAt": "2024-08-27T14:42:10.845859Z",
-           "requestedAt": "2024-08-27T14:38:11.811489Z"
-          }
+        - Request
+          curl -X 'GET' \
+           'https://api.gokraken.net/kraken/item/my-item/257a59cc-0a3e-4ce7-b7e3-17f3ce6a8041' \
+           -H 'accept: application/json' \
+           -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
+          
+        - Response
+            {
+             "jobId": "257a59cc-0a3e-4ce7-b7e3-17f3ce6a8041",
+             "itemName": "NeRFTest",
+             "model": "nerf2mesh",
+             "jobStatus": "success",
+             "createdAt": "2024-08-27T14:42:10.845859Z",
+             "requestedAt": "2024-08-27T14:38:11.811489Z"
+            }
 
 
 #### Step-4 : Download Item (GET)
