@@ -22,7 +22,7 @@
   1. System Interaction Overview
 
 
-#### 3. Detailed Financial Models [Detailed Financial Models](./1.-Detailed-Financia-Models.py)
+#### 3. Detailed Financial Models [Detailed Financial Models](https://github.com/gokraken-net/1.-Detailed-Financial-Models)
     import pandas as pd
     import numpy as np
     
