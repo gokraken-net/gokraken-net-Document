@@ -133,40 +133,40 @@
 #### 4. Governance Mechanisms [Governance Mechanisms](https://github.com/gokraken-net/2.-Governance-Mechanisms)
 
 ##### 1. Governance Structure
-###### Voting Power
-    - $INK = 1 base vote
-    - Voting power multipliers:
-      - Staked tokens: 1.5x
-      - Network node operators: 2x
-      - Active developers: 2x
-      - Long-term holders (>6 months): 1.25x
+  ######   Voting Power
+        - $INK = 1 base vote
+        - Voting power multipliers:
+        - Staked tokens: 1.5x
+        - Network node operators: 2x
+        - Active developers: 2x
+        - Long-term holders (>6 months): 1.25x
 
-##### Governance Bodies
-###### 1. Token Holders
-    - All $INK holders
-    - Basic voting rights
-    - Proposal submission (requires 1M $INK)
-###### 2. Technical Committee
-    - 7 members
-    - Elected by token holders
-    - Focus: Technical proposals & upgrades
-    - Requirements:
-      - Proven technical expertise
-      - Min 500K $INK staked
-      - 2-year commitment
-###### 3. Node Operator Council
-    - 5 members
-    - Elected by active node operators
-    - Focus: Network operations & rewards
-    - Requirements:
-    - Active node operation
-    - Min 3 months history
-    - Performance score >95%
-###### 4. Development Fund Committee
-    - 5 members
-    - 3 elected by token holders
-    - 2 appointed by core team
-    - Focus: Ecosystem fund allocation
+  #####   Governance Bodies
+  ######     1. Token Holders
+        - All $INK holders
+        - Basic voting rights
+        - Proposal submission (requires 1M $INK)
+  ###### 2. Technical Committee
+      - 7 members
+      - Elected by token holders
+      - Focus: Technical proposals & upgrades
+      - Requirements:
+        - Proven technical expertise
+        - Min 500K $INK staked
+        - 2-year commitment
+  ###### 3. Node Operator Council
+      - 5 members
+      - Elected by active node operators
+      - Focus: Network operations & rewards
+      - Requirements:
+      - Active node operation
+      - Min 3 months history
+      - Performance score >95%
+  ###### 4. Development Fund Committee
+      - 5 members
+      - 3 elected by token holders
+      - 2 appointed by core team
+      - Focus: Ecosystem fund allocation
 
 ##### 2. Proposal System
 ###### Proposal Types
