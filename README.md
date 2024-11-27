@@ -133,7 +133,7 @@
     Report
     Remix Artifact
  
-#### 4. Governance Mechanisms [Governance Mechanisms](./https://github.com/gokraken-net/2.-Governance-Mechanisms)
+#### 4. Governance Mechanisms [Governance Mechanisms](https://github.com/gokraken-net/2.-Governance-Mechanisms)
 
 ##### 1. Governance Structure
 ###### Voting Power
