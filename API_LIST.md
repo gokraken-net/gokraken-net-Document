@@ -33,6 +33,7 @@
 
 [1\. Introduction](#1\.-Introduction)
 
+[2.5 GET atlas/auth/confirm-email](#2.5-GET-atlas/auth/confirm-email)
 # 1\. Introduction
 
 - - -
