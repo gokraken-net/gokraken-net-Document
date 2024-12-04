@@ -72,5 +72,5 @@ Surface reconstruction algorithms come into play here, creating a continuous sur
 Mesh refinement is the process of improving the quality and accuracy of an existing 3D mesh. This is often necessary because the initial mesh generated through reconstruction may be rough or contain imperfections. This process can involve smoothing to reduce irregularities and noise in the mesh. To optimize the mesh’s structure, you can use techniques such as edge collapse, vertex split, and mesh simplification.
 
 
-8. Mesh texturing
+## 8. Mesh texturing
 Mesh texturing allows us to have a final 3D model. Materials’ properties and lighting condition are added to the refined mesh, resulting in 3D representation, similar to the real world.
