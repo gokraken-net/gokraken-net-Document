@@ -1,8 +1,4 @@
-
-[1\. Introduction](#1\.-Introduction)
-
-[2.5 GET atlas/auth/confirm-email](#2.5-GET-atlas/auth/confirm-email)
-
+# goKraken.net Service Interface API List
 
 # 1\. Introduction
 
