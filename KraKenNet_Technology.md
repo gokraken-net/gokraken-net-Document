@@ -24,14 +24,14 @@
 ### Steps in reconstructing a 3D model from 2D images [Link](https://medium.com/@popovici.cristina211/3d-reconstruction-from-2d-images-using-openmvg-and-openmvs-b23bc7adb616)
 
 #### Index
-  [1. Image collection](#1.-Image-collection)
+  1. [Image collection](#-1.-Image-collection)
   1. Feature extraction
   1. Feature matching
   1. Structure from Motion
   1. Dense point-cloud reconstruction
   1. Mesh Reconstruction
   1. Mesh Refinement
-  [1. Mesh Texturing](#8.-Mesh-texturing)
+  1. [Mesh Texturing](#-8.-Mesh-texturing)
      
 #### 1. Image collection
 When reconstructing the 3D configuration of an object, it is essential to capture more than two high-quality images that overlap. Additionally, ensure that these images contain EXIF metadata, which includes crucial information such as the image’s width and height, the camera used, exposure time, and most importantly, the focal length.
