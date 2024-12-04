@@ -24,14 +24,14 @@
 ### Steps in reconstructing a 3D model from 2D images [Link](https://medium.com/@popovici.cristina211/3d-reconstruction-from-2d-images-using-openmvg-and-openmvs-b23bc7adb616)
 
 #### Index
-  1. [Image collection](#-1.-Image-collection)
+  1. [Image collection](#1.-Image-collection)
   1. Feature extraction
   1. Feature matching
   1. Structure from Motion
   1. Dense point-cloud reconstruction
   1. Mesh Reconstruction
   1. Mesh Refinement
-  1. [Mesh Texturing](#Mesh-texturing)
+  1. [Mesh Texturing](#8.Meshtexturing)
      
 #### 1. Image collection
 When reconstructing the 3D configuration of an object, it is essential to capture more than two high-quality images that overlap. Additionally, ensure that these images contain EXIF metadata, which includes crucial information such as the image’s width and height, the camera used, exposure time, and most importantly, the focal length.
@@ -72,5 +72,5 @@ Surface reconstruction algorithms come into play here, creating a continuous sur
 Mesh refinement is the process of improving the quality and accuracy of an existing 3D mesh. This is often necessary because the initial mesh generated through reconstruction may be rough or contain imperfections. This process can involve smoothing to reduce irregularities and noise in the mesh. To optimize the mesh’s structure, you can use techniques such as edge collapse, vertex split, and mesh simplification.
 
 
-## 8. Mesh texturing
+#### 8.Meshtexturing
 Mesh texturing allows us to have a final 3D model. Materials’ properties and lighting condition are added to the refined mesh, resulting in 3D representation, similar to the real world.
