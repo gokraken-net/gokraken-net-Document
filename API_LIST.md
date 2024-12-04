@@ -1,39 +1,9 @@
-*   1 [1\. Introduction](#1.-Introduction)
-    *   1.1 [1.1 Purpose](#1.1-Purpose)
-*   2 [2\. Authorization API](#2.-Authorization-API)
-    *   2.1 [2.1 POST atlas/auth/sign-up](#2.1-POST-atlas%2Fauth%2Fsign-up)
-    *   2.2 [2.2 POST atlas/auth/sign-In](#2.2-POST-atlas%2Fauth%2Fsign-In)
-    *   2.3 [2.3 POST atlas/auth/sign-out](#2.3-POST-atlas%2Fauth%2Fsign-out)
-    *   2.4 [2.4 POST atlas/auth/confirmation-emails/resend](#2.4-POST-atlas%2Fauth%2Fconfirmation-emails%2Fresend)
-    *   2.5 [2.5 GET atlas/auth/confirm-email](#2.5-GET-atlas%2Fauth%2Fconfirm-email)
-    *   2.6 [2.6 GET atlas/auth/confirm-invite-email](#2.6-GET-atlas%2Fauth%2Fconfirm-invite-email)
-    *   2.7 [2.7 POST atlas/auth/reset-password](#2.7-POST-atlas%2Fauth%2Freset-password)
-    *   2.8 [2.8 PATCH atlas/auth/password](#2.8-PATCH-atlas%2Fauth%2Fpassword)
-    *   2.9 [2.9 DELETE atlas/auth/user](#2.9-DELETE-atlas%2Fauth%2Fuser)
-    *   2.10 [2.10 POST atlas/auth/google](#2.10-POST-atlas%2Fauth%2Fgoogle)
-    *   2.11 [2.11 POST atlas/refresh/accessToken](#2.11-POST-atlas%2Frefresh%2FaccessToken)
-    *   2.12 [2.12 GET atlas/me](#2.12-GET-atlas%2Fme)
-*   3 [3\. AI Model Creation API](#3.-AI-Model-Creation-API)
-    *   3.1 [3.1 POST /atlas/item/decal](#3.1-POST-%2Fatlas%2Fitem%2Fdecal)
-    *   3.2 [3.2 POST /atlas/item/nerf2mesh](#3.2-POST-%2Fatlas%2Fitem%2Fnerf2mesh)
-    *   3.3 [3.3 POST /atlas/item/musepose](#3.3-POST-%2Fatlas%2Fitem%2Fmusepose)
-    *   3.4 [3.4 POST /atlas/item/instant-mesh](#3.4-POST-%2Fatlas%2Fitem%2Finstant-mesh)
-    *   3.5 [3.5 POST /atlas/item/gs3d](#3.5-POST-%2Fatlas%2Fitem%2Fgs3d)
-*   4 [4\. Item API](#4.-Item-API)
-    *   4.1 [4.1 GET atlas/item/detail/{requestId}](#4.1-GET-atlas%2Fitem%2Fdetail%2F%7BrequestId%7D)
-    *   4.2 [4.2 GET atlas/item/download/{requestId}](#4.2-GET-atlas%2Fitem%2Fdownload%2F%7BrequestId%7D)
-    *   4.3 [4.3 GET atlas/item/my/{ModelId}](#4.3-GET-atlas%2Fitem%2Fmy%2F%7BModelId%7D)
-    *   4.4 [4.4 GET atlas/item/detail/my/{requestId}](#4.4-GET-atlas%2Fitem%2Fdetail%2Fmy%2F%7BrequestId%7D)
-    *   4.5 [4.5 DELETE atlas/item/{requestId}](#4.5-DELETE-atlas%2Fitem%2F%7BrequestId%7D)
-    *   4.6 [4.6 GET atlas/item/${type}/{requestId}](#4.6-GET-atlas%2Fitem%2F%24%7Btype%7D%2F%7BrequestId%7D)
-*   5 [5\. Role API](#5.-Role-API)
-    *   5.1 [5.1 GET atlas/role](#5.1-GET-atlas%2Frole)
-*   6 [6\. 기본 API](#6.-%EA%B8%B0%EB%B3%B8-API)
-    *   6.1 [6.1 GET atlas/version](#6.1-GET-atlas%2Fversion)
 
 [1\. Introduction](#1\.-Introduction)
 
 [2.5 GET atlas/auth/confirm-email](#2.5-GET-atlas/auth/confirm-email)
+
+
 # 1\. Introduction
 
 - - -
