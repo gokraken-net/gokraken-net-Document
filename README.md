@@ -486,6 +486,47 @@
           content-length: 747160
           content-disposition: attachment; filename=mesh_1.glb
           cache-control: no-cache
+
+#### 2. Authorization API
+    Passes the Backend API framework feature items.
+    
+##### 2.1 POST atlas/auth/sign-up
+    This is an email-based membership registration API.
+    
+###### 2.1.1 Request  
+  | Info  |       |        |
+  | ----- | ----- | ------ |
+  | Methord | POST |       |
+  | Content-Type | application/json |
+  | Body |         |       |
+  | Key  | Type | Desciption |
+  | email | string | User Email |
+  | password | string | User Password, 10 characters or more, At least 1 uppercase and lowercase letter, At least 1 special character, At least 1 number |
+  | nickname | string | User alias (nickname) |
+
+###### 2.1.2 Response
+    2.1.2.1 Success
+  | code  |       |        |
+  | ----- | ----- | ------ |
+  | Code   | Description |       |
+  | 201  | Complete membership registration |       |
+  | Body |         |       |
+  | Key  | Type | Desciption |
+  | - | - | - |
+  
+  2.1.2.2 Fail
+  
+  | code  |       |        |
+  | ----- | ----- | ------ |
+  | Code   | Description |       |
+  | 400  | If the input value is invalid |       |
+  | 409  | If there is a duplicate email |       |
+  | 500  | Email External Module Error or Unexpected Error |       |
+  | Body |         |       |
+  | Key  | Type | Desciption |
+  | message | string | Response information |
+  
+
     
 ![Image](./20241001_KrakenNet(v.2.4)_1.png)
 
