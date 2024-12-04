@@ -73,6 +73,4 @@ Mesh refinement is the process of improving the quality and accuracy of an exist
 
 
 8. Mesh texturing
-
-   
 Mesh texturing allows us to have a final 3D model. Materials’ properties and lighting condition are added to the refined mesh, resulting in 3D representation, similar to the real world.
